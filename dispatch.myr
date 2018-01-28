@@ -1,0 +1,25 @@
+use std
+
+pkg dispatch =
+	const register : (cmd: byte[:], f: (-> void) -> void)
+	const call : (cmd: byte[:], params: byte[:] -> bool)
+;;
+
+var tbl : std.htab(byte[:], (-> void))#
+
+const __init__ = {
+	tbl = std.mkht()
+}
+
+const register = {cmd, f
+	std.htput(tbl, cmd, f)
+}
+
+const call = {cmd, params
+	match std.htget(tbl, cmd)
+	| `std.Some f:
+		f(params)
+		-> true
+	| `std.None: -> false
+	;;
+}

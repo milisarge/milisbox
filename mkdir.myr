@@ -1,0 +1,15 @@
+use std
+use dispatch
+
+pkg mkdir =
+;;
+
+const mkdir = {params
+	std.put("mkdir called\n")
+	path=params[0]
+	std.mkdir(path,644)
+}
+
+const __init__ = {
+	dispatch.register("mkdir", mkdir)
+}

@@ -1,0 +1,14 @@
+bin milisbox =
+	lib dispatch
+	lib mkdir
+	main.myr
+;;
+
+lib dispatch =
+	dispatch.myr
+;;
+
+lib mkdir =
+	lib dispatch
+	mkdir.myr
+;;

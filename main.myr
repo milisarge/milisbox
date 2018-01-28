@@ -1,0 +1,30 @@
+use std
+use dispatch
+use mkdir
+
+const main = {args : byte[:][:]
+
+	var program = "milisbox"
+	var cmd
+	var params
+	cmd = args[0]
+	
+	//if std.eq(args[0], "somestring")
+	
+	match std.basename(cmd)
+	| "milisbox" :
+		std.put("{} {}\n",program," 0.1 info")
+		cmd = args[1]
+		params = args[2:]
+	| _:
+		std.put("{} {} {}\n",program,cmd,"0.1 info")
+		cmd = args[1]
+		params = args[1:]
+		
+	;;
+	std.put("call {} with these: {}\n",cmd,params)
+	
+	if !dispatch.call(cmd,params)
+		std.put("unknown command: {}\n", cmd)
+	;;
+}
