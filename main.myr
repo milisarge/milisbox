@@ -4,21 +4,22 @@ use mkdir
 
 const main = {args : byte[:][:]
 
-	var program = "milisbox"
+	const program = "milisbox"
 	var cmd
 	var params
 	cmd = args[0]
 	
 	//if std.eq(args[0], "somestring")
 	
-	match std.basename(cmd)
-	| "milisbox" :
+	cmd = std.basename(cmd)
+	std.put("progname: {}\n", cmd)
+	match cmd
+	| program :
 		std.put("{} {}\n",program," 0.1 info")
 		cmd = args[1]
 		params = args[2:]
 	| _:
 		std.put("{} {} {}\n",program,cmd,"0.1 info")
-		cmd = args[1]
 		params = args[1:]
 		
 	;;

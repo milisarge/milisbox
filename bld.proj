@@ -1,6 +1,8 @@
 bin milisbox =
 	lib dispatch
 	lib mkdir
+	lib ls
+	lib echo
 	main.myr
 ;;
 
@@ -11,4 +13,14 @@ lib dispatch =
 lib mkdir =
 	lib dispatch
 	mkdir.myr
+;;
+
+lib ls =
+	lib dispatch
+	ls.myr
+;;
+
+lib echo =
+	lib dispatch
+	echo.myr
 ;;

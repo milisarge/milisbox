@@ -16,6 +16,7 @@ const register = {cmd, f
 }
 
 const call = {cmd, params
+	std.put("disp {} -  {}\n",cmd,params)
 	match std.htget(tbl, cmd)
 	| `std.Some f:
 		f(params)

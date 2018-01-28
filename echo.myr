@@ -1,0 +1,16 @@
+use std
+use dispatch
+
+pkg echo =
+;;
+
+const echo = {params
+	var value
+	std.put("echo called\n")
+	value=params[0]
+	std.put("{}\n",value)
+}
+
+const __init__ = {
+	dispatch.register("echo", echo)
+}

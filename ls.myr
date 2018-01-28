@@ -1,0 +1,16 @@
+use std
+use dispatch
+
+pkg ls =
+;;
+
+const ls = {params
+	var path
+	std.put("ls called\n")
+	path=params[0]
+	//std.mkdir(path,644)
+}
+
+const __init__ = {
+	dispatch.register("ls",ls)
+}
