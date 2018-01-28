@@ -1,6 +1,8 @@
 use std
-use dispatch
-use mkdir
+use "dispatch"
+use "mkdir"
+use "ls"
+use "echo"
 
 const main = {args : byte[:][:]
 

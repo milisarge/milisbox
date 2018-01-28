@@ -1,5 +1,5 @@
 use std
-use dispatch
+use "dispatch"
 
 pkg ls =
 ;;
