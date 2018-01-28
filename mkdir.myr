@@ -5,6 +5,7 @@ pkg mkdir =
 ;;
 
 const mkdir = {params
+	var path
 	std.put("mkdir called\n")
 	path=params[0]
 	std.mkdir(path,644)

@@ -1,11 +1,11 @@
 use std
 
 pkg dispatch =
-	const register : (cmd: byte[:], f: (-> void) -> void)
-	const call : (cmd: byte[:], params: byte[:] -> bool)
+	const register : (cmd: byte[:], f: (params: byte[:][:] -> void) -> void)
+	const call : (cmd: byte[:], params: byte[:][:] -> bool)
 ;;
 
-var tbl : std.htab(byte[:], (-> void))#
+var tbl : std.htab(byte[:], (params: byte[:][:] -> void))#
 
 const __init__ = {
 	tbl = std.mkht()
