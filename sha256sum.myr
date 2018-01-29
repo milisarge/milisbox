@@ -7,7 +7,7 @@ const sha256sum = {params
 	
 	var f, ofile
 	var st, hash
-	var buf : byte[256*1024]
+	var buf : byte[1024]
 	var b
 	
 	ofile=params[0]
@@ -28,8 +28,6 @@ const sha256sum = {params
 			crypto.sha256add(&st,b)
         ;;
     ;;
-    
-	
 	
     hash = crypto.sha256fin(&st)
 

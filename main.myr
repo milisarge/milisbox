@@ -4,6 +4,7 @@ use "mkdir"
 use "ls"
 use "echo"
 use "cat"
+use "rm"
 use "sha256sum"
 
 const main = {args : byte[:][:]

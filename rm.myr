@@ -1,0 +1,16 @@
+use std
+use sys
+use bio
+use "dispatch"
+
+const rm = {params
+
+	std.put("rm called\n")
+	delpath=params[0]
+	//std.remove(delpath)
+	sys.rmdir(delpath)
+}
+
+const __init__ = {
+	dispatch.register("rm", rm)
+}
