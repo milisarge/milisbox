@@ -24,9 +24,15 @@ const sha256sum = {params
 	
     hash = crypto.sha256fin(&st)
 
+	// komple raw data yazıyoruz
+	std.put("{r}",hash[:])
+	
+	/* hex integer yazmak için
 	for h : hash
 			std.put("{x}", h)
 	;;
+	*/
+	
 	std.put("\n")
 }
 
