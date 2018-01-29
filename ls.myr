@@ -3,11 +3,13 @@ use "dispatch"
 
 
 const ls = {params
-	var dir, output
+	var dir, dirname
 	std.put("ls called\n")
-	dir=params[0]
-	output=std.byentry(dir)
-    std.put("{}\n",output.nextfile)
+	dirname=params[0]
+	dir = std.try(std.diropen(dirname))
+	for f : std.byentry(dir)
+		std.put("{}\n",f)
+	;;
 }
 
 const __init__ = {
