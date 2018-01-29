@@ -1,8 +1,6 @@
 use std
 use "dispatch"
 
-pkg mkdir =
-;;
 
 const mkdir = {params
 	var path

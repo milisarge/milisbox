@@ -1,0 +1,29 @@
+use std
+use bio
+use "dispatch"
+
+const cat = {params
+	
+	var f, i, ofile
+	ofile=params[0]
+	
+	match bio.open(ofile, bio.Rd)
+	| `std.Ok bio:        f = bio
+	| `std.Err e:    std.fatal("Unable to open data file: {}\n", e)
+	;;
+
+	i = 0
+	while true
+		match bio.readln(f)
+		| `std.Err `bio.Eof:    break;
+		| `std.Err e:       std.fatal("err: {}\n", e)
+		| `std.Ok ln:       
+			std.put("{}\n", ln)
+			i++
+		;;
+	;;
+}
+
+const __init__ = {
+	dispatch.register("cat", cat)
+}

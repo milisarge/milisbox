@@ -1,8 +1,6 @@
 use std
 use "dispatch"
 
-pkg echo =
-;;
 
 const echo = {params
 	var value

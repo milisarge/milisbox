@@ -3,5 +3,7 @@ bin milisbox =
 	mkdir.myr
 	ls.myr
 	echo.myr
+	sha256sum.myr
+	cat.myr
 	main.myr
 ;;

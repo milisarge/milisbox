@@ -3,6 +3,8 @@ use "dispatch"
 use "mkdir"
 use "ls"
 use "echo"
+use "cat"
+use "sha256sum"
 
 const main = {args : byte[:][:]
 

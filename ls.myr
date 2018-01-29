@@ -1,14 +1,13 @@
 use std
 use "dispatch"
 
-pkg ls =
-;;
 
 const ls = {params
-	var path
+	var dir, output
 	std.put("ls called\n")
-	path=params[0]
-	//std.mkdir(path,644)
+	dir=params[0]
+	output=std.byentry(dir)
+    std.put("{}\n",output.nextfile)
 }
 
 const __init__ = {

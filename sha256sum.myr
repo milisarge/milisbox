@@ -1,0 +1,38 @@
+use std
+use bio
+use crypto
+use "dispatch"
+
+const sha256sum = {params
+	
+	var f, i, ofile
+	var st, hash
+	crypto.sha256init(&st)
+	ofile=params[0]
+
+    match bio.open(ofile, bio.Rd)
+    | `std.Ok bio:        f = bio
+    | `std.Err e:    std.fatal("Unable to open data file: {}\n", e)
+    ;;
+
+    i = 0
+    while true
+        match bio.readln(f)
+        | `std.Err `bio.Eof:    break;
+        | `std.Err e:       std.fatal("err: {}\n", e)
+        | `std.Ok ln:       
+			crypto.sha256add(&st,ln) 
+			i++
+        ;;
+    ;;
+    hash = crypto.sha256fin(&st)
+
+	for b : hash
+			std.put("{x}", b)
+	;;
+	std.put("\n")
+}
+
+const __init__ = {
+	dispatch.register("sha256sum", sha256sum)
+}
