@@ -5,32 +5,42 @@ use "dispatch"
 
 const sha256sum = {params
 	
-	var f, i, ofile
+	var f, ofile
 	var st, hash
-	crypto.sha256init(&st)
+	var buf : byte[64*1024]
+	var b
+	
 	ofile=params[0]
 
     match bio.open(ofile, bio.Rd)
     | `std.Ok bio:        f = bio
     | `std.Err e:    std.fatal("Unable to open data file: {}\n", e)
     ;;
-
-    i = 0
-    while true
-        match bio.readln(f)
-        | `std.Err `bio.Eof:    break;
-        | `std.Err e:       std.fatal("err: {}\n", e)
-        | `std.Ok ln:       
-			crypto.sha256add(&st,ln) 
-			i++
-        ;;
-    ;;
+	
+    crypto.sha256init(&st)
+    
+    b = r(f, buf[:])
+	crypto.sha256add(&st,b) 
+	
     hash = crypto.sha256fin(&st)
 
-	for b : hash
-			std.put("{x}", b)
+	for h : hash
+			std.put("{x}", h)
 	;;
 	std.put("\n")
+}
+
+const r = {f, buf
+	match bio.read(f, buf)
+	| `std.Ok b:
+		-> b
+	| `std.Err `bio.Eof:
+		std.put("eof\n")
+		-> ""
+	| `std.Err e:
+		std.put("err\n")
+		-> ""
+	;;
 }
 
 const __init__ = {
