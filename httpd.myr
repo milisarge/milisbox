@@ -8,9 +8,9 @@ const httpd = {params
 	var ip, port
 	ip=params[0]
 	port=params[1]
-	const serveropt = ["tcp","!",ip,"!",port]
+	var serveropt = ["tcp","!",ip,"!",port]
 	
-	std.put("httpd running {}:{}",ip,port)
+	std.put("httpd running {}:{}\n",ip,port)
     
     match http.announce(std.strjoin(serveropt[:], ""))
     | `std.Ok s:    srv = s
