@@ -5,6 +5,7 @@ use "ls"
 use "echo"
 use "cat"
 use "rm"
+use "httpd"
 use "sha256sum"
 
 const main = {args : byte[:][:]

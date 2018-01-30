@@ -6,5 +6,6 @@ bin milisbox =
 	sha256sum.myr
 	cat.myr
 	rm.myr
+	httpd.myr
 	main.myr
 ;;
