@@ -4,11 +4,18 @@ use bio
 use "dispatch"
 
 const rm = {params
-
+	var delpath, ret
 	std.put("rm called\n")
 	delpath=params[0]
 	//std.remove(delpath)
-	sys.rmdir(delpath)
+	ret=sys.rmdir( sys.cstring(delpath))
+	// std.put("ret {}\n",ret)
+	match ret
+	| -39 : std.put("not empty\n")
+	|  0  : std.put("deleted\n")
+	|  2  : std.put("directory isnt exist\n")
+	|    _: std.put("unknown error\n")
+	;;
 }
 
 const __init__ = {
