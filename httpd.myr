@@ -23,13 +23,13 @@ const httpd = {params
 
 const handler = {srv, sess, req
     var s = std.fmt("{}", escfmt.url(req.url.path))
-    var spech
     var rurl
-    var hashsign="%23"
-    spech=std.strhas(req.url.path,hashsign)
-    if spech
-		rurl=std.strjoin(std.strsplit(req.url.path,hashsign),"#")
-	;;
+    var charform
+    var signs=["%23","%24"]
+    for sign : signs[:]
+		charform="\u{sign[1:]}"
+		rurl=std.strreplace(req.url.path,sign,charform)
+    ;;
     std.put("Reading reqpath {}\n", rurl)
     match rurl
     | "/ping":  respond(srv, sess, 200, "pong")
