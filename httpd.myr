@@ -25,10 +25,13 @@ const handler = {srv, sess, req
     var s = std.fmt("{}", escfmt.url(req.url.path))
     var rurl
     var charform
-    var signs=["%23","%24"]
+    var signc
+    const signs = [23,24]
     for sign : signs[:]
-		charform="\u{sign[1:]}"
-		rurl=std.strreplace(req.url.path,sign,charform)
+		charform=std.fmt("{}", (sign[0]*16+sign[1] : char))
+		signc=std.fmt("{}", sign)
+		std.put("{} > {}\n",sign,charform)
+		rurl=std.strreplace(req.url.path,std.strcat("%",signc),charform)
     ;;
     std.put("Reading reqpath {}\n", rurl)
     match rurl
