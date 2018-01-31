@@ -1,5 +1,6 @@
 use std
 use http
+use escfmt
 use "dispatch"
 
 const httpd = {params
@@ -21,10 +22,18 @@ const httpd = {params
 }
 
 const handler = {srv, sess, req
-    std.put("Reading path {}\n", req.url.path)
-    match req.url.path
+    var s = std.fmt("{}", escfmt.url(req.url.path))
+    var spech
+    var rurl
+    var hashsign="%23"
+    spech=std.strhas(req.url.path,hashsign)
+    if spech
+		rurl=std.strjoin(std.strsplit(req.url.path,hashsign),"#")
+	;;
+    std.put("Reading reqpath {}\n", rurl)
+    match rurl
     | "/ping":  respond(srv, sess, 200, "pong")
-    | fspath:   showfile(srv, sess, req.url.path)
+    | fspath:   showfile(srv, sess, rurl)
     ;;
 }
 
