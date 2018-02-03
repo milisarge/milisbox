@@ -23,20 +23,20 @@ const httpd = {params
 
 const handler = {srv, sess, req
     var s = std.fmt("{}", escfmt.url(req.url.path))
-    var rurl
+    var url=req.url.path
     var charform
     var signc
-    const signs = [23,24]
+    const signs = [0x23,0x24]
     for sign : signs[:]
-		charform=std.fmt("{}", (sign[0]*16+sign[1] : char))
-		signc=std.fmt("{}", sign)
-		std.put("{} > {}\n",sign,charform)
-		rurl=std.strreplace(req.url.path,std.strcat("%",signc),charform)
+		signc=std.fmt("{x}",sign)
+		charform=std.fmt("{}", (sign : char))
+		//std.put("{} , {} > {}\n",req.url.path,std.strcat("%",signc),charform)
+		url=std.strreplace(url,std.strcat("%",signc),charform)
     ;;
-    std.put("Reading reqpath {}\n", rurl)
-    match rurl
+    std.put("Reading reqpath {}\n", url)
+    match url
     | "/ping":  respond(srv, sess, 200, "pong")
-    | fspath:   showfile(srv, sess, rurl)
+    | fspath:   showfile(srv, sess, url)
     ;;
 }
 
