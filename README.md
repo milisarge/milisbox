@@ -46,7 +46,7 @@
 - [ ] cryptpw
 - [ ] cttyhack
 - [ ] cut
-- [ ] date
+- [x] date
 - [ ] dc
 - [ ] dd
 - [ ] deallocvt
@@ -283,7 +283,7 @@
 - [ ] shred
 - [ ] shuf
 - [ ] slattach
-- [ ] sleep
+- [x] sleep
 - [ ] smemcap
 - [ ] softlimit
 - [ ] sort

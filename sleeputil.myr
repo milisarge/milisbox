@@ -8,7 +8,7 @@ const sleeputil = {params
 	std.put("s.\n")
 	sn=params[0]
 	match std.intparse(sn)
-	| `std.Some n: std.usleep(n*1000)
+	| `std.Some n: std.usleep(n*std.Msec)
 	| `std.None: std.put("{}\n","wrong value")
 	;;
     std.put("f.\n")
