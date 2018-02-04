@@ -1,0 +1,16 @@
+use std
+use "dispatch"
+
+
+const sleeputil = {params
+	var sn
+	std.put("sleep called\n")
+	std.put(".\n")
+	sn=params[0]
+	std.usleep(2000)
+    std.put(".")
+}
+
+const __init__ = {
+	dispatch.register("sleep",sleeputil)
+}

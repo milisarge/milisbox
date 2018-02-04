@@ -8,6 +8,7 @@ use "cat"
 use "rm"
 use "httpd"
 use "sha256sum"
+use "sleeputil"
 use "whoami"
 
 const main = {args : byte[:][:]
