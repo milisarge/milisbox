@@ -1,4 +1,5 @@
 bin milisbox =
+	date.myr
 	dispatch.myr
 	mkdir.myr
 	ls.myr
