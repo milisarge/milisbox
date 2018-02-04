@@ -4,8 +4,7 @@ use "dispatch"
 
 const date = {params
 	std.put("date called\n")
-	//std.put("{}\n",date.utcnow())
-	std.put("got {}\n", date.utcnow())
+	std.put("{}\n", date.utcnow())
 }
 
 const __init__ = {
