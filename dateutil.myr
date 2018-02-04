@@ -2,11 +2,11 @@ use std
 use date
 use "dispatch"
 
-const date = {params
+const dateutil = {params
 	std.put("date called\n")
 	std.put("{}\n", date.utcnow())
 }
 
 const __init__ = {
-	dispatch.register("date", date)
+	dispatch.register("date", dateutil)
 }
