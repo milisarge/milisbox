@@ -3,7 +3,7 @@ use "dispatch"
 
 
 const sleeputil = {params
-	var sn :time
+	var sn
 	std.put("sleep called\n")
 	std.put("s.\n")
 	sn=params[0]
