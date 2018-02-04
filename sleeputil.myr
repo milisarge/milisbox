@@ -3,12 +3,13 @@ use "dispatch"
 
 
 const sleeputil = {params
-	var sn
+	var sn :time
 	std.put("sleep called\n")
-	std.put(".\n")
+	std.put("s.\n")
 	sn=params[0]
-	std.usleep(2000)
-    std.put(".")
+	//std.usleep(4000000) //4sec
+	std.usleep(sn) //4sec
+    std.put("f.\n")
 }
 
 const __init__ = {
