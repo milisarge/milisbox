@@ -366,7 +366,7 @@
 - [ ] wc
 - [ ] wget
 - [ ] which
-- [ ] whoami
+- [x] whoami
 - [ ] whois
 - [ ] xargs
 - [ ] xxd

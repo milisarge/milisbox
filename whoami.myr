@@ -1,0 +1,18 @@
+use std
+use "dispatch"
+
+
+const whoami = {params
+	var user
+	std.put("whoami called\n")
+	match std.getenv("USER")
+	| `std.Some d:	user = d
+	| `std.None:	user = ""
+	;;
+	std.put("{}\n",user)
+
+}
+
+const __init__ = {
+	dispatch.register("whoami",whoami)
+}

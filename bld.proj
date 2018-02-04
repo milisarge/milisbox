@@ -7,5 +7,6 @@ bin milisbox =
 	cat.myr
 	rm.myr
 	httpd.myr
+	whoami.myr
 	main.myr
 ;;
