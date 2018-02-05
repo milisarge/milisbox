@@ -5,7 +5,7 @@ use "dispatch"
 const cp = {params
 	std.put("cp called\n")
 	var src,dest,fsrc,fdest
-	var buf : byte[1024]
+	var buf : byte[16*1024]
 	var b
 	src=params[0]
 	dest=params[1]
