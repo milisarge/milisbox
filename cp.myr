@@ -43,6 +43,7 @@ const cp = {params
 	bio.flush(fdest)
 	bio.close(fsrc)
 	bio.close(fdest)
+	std.slfree(dest)
 	
 	std.put("copied {} to {}\n",src,dest)
 }
