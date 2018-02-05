@@ -1,0 +1,65 @@
+use std
+use bio
+use "dispatch"
+
+const cp = {params
+	std.put("cp called\n")
+	var src,dest,fsrc,fdest
+	var buf : byte[1024]
+	var b
+	src=params[0]
+	dest=params[1]
+	
+	// if dest is current path
+	if std.eq(dest,".")
+		std.put("copy in here \n")
+		dest=std.strcat("./",std.basename(src))
+	;;
+	match bio.open(src, bio.Rd)
+    | `std.Ok bio:        fsrc = bio
+    | `std.Err e:    std.fatal("Unable to open src file: {}\n", e)
+    ;;
+    
+    match bio.create(dest, bio.Wr, 0o644)
+	| `std.Ok bio:	fdest = bio
+	| `std.Err m:	std.fatal("Failed to create dest file: {}\n", m)
+	;;
+	
+    /*
+    match bio.open(dest, bio.Rd)
+    | `std.Ok bio2:        fdest = bio2
+    | `std.Err e:    std.fatal("Unable to open dest file: {}\n", e)
+    ;;
+	*/
+	while true
+        b= r(fsrc, buf[:])
+        match b
+        | "":    break;
+        | _:     bio.write(fdest, b)
+        ;;
+    ;;
+	
+	bio.flush(fsrc)
+	bio.flush(fdest)
+	bio.close(fsrc)
+	bio.close(fdest)
+	
+	std.put("copied {} to {}\n",src,dest)
+}
+
+const __init__ = {
+	dispatch.register("cp", cp)
+}
+
+const r = {f, buf
+	match bio.read(f, buf)
+	| `std.Ok b:
+		-> b
+	| `std.Err `bio.Eof:
+		std.put("eof\n")
+		-> ""
+	| `std.Err e:
+		std.put("err\n")
+		-> ""
+	;;
+}

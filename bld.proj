@@ -1,4 +1,5 @@
 bin milisbox =
+	cp.myr
 	dateutil.myr
 	dispatch.myr
 	mkdir.myr
