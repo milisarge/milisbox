@@ -10,6 +10,7 @@ use "rm"
 use "httpd"
 use "sha256sum"
 use "sleeputil"
+use "uname"
 use "whoami"
 
 const main = {args : byte[:][:]

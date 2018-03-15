@@ -10,6 +10,7 @@ bin milisbox =
 	rm.myr
 	httpd.myr
 	sleeputil.myr
+	uname.myr
 	whoami.myr
 	main.myr
 ;;

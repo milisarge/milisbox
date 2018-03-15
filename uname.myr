@@ -1,0 +1,19 @@
+use std
+use "dispatch"
+
+
+const uname = {params
+	/*
+	var option
+	option=params[0] 
+	*/
+	std.put("uname called\n")
+	
+	var info : std.sysinfo
+	std.put("{}\n",info.arch)
+
+}
+
+const __init__ = {
+	dispatch.register("uname",uname)
+}
