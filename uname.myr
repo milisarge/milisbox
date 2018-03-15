@@ -1,5 +1,6 @@
 use std
 use "dispatch"
+use "cat"
 
 
 const uname = {params
@@ -11,10 +12,13 @@ const uname = {params
 	
 	for option : params
 		
-		option=params[0] 
+		option = params[0] 
+		
+		/* var hostname = read("/proc/sys/kernel/hostname") */
+		var hostname = "not yet"
 		
 		match option
-		| "-a"	:	std.put("{} {} {} {}\n",info.system,info.release,info.version,info.arch)
+		| "-a"	:	std.put("{} {} {} {} {}\n",info.system,hostname,info.release,info.version,info.arch)
 		| "-m"	:	std.put("{}\n",info.arch)
 		| "-v"	:	std.put("{}\n",info.version)
 		| "-r"	:	std.put("{}\n",info.release)
