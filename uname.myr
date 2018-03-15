@@ -17,7 +17,7 @@ const uname = {params
 		var hostname
 		var readline = std.slurp("/proc/sys/kernel/hostname")
 		match readline
-		| `std.Ok dat: 	hostname = dat[:dat.len-1]
+		| `std.Ok dat: 	hostname = std.strstrip(dat)
 		| `std.Err msg:	std.put("Failed to read file: {}\n", msg)
 		;;
 		
