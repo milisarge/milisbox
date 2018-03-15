@@ -27,6 +27,7 @@ const uname = {params
 		| "-v"	:	std.put("{}\n",info.version)
 		| "-r"	:	std.put("{}\n",info.release)
 		| "-s"	:	std.put("{}\n",info.system)
+		| "-n"	:	std.put("{}\n",hostname)
 		| _		: 	std.put("{}\n","no info")
 		;;
 		std.exit(1)
