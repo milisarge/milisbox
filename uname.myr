@@ -9,8 +9,8 @@ const uname = {params
 	var info
 	std.getsysinfo(&info)
 	
-	while params
-		var option
+	for option : params
+		
 		option=params[0] 
 		
 		match option
@@ -20,6 +20,7 @@ const uname = {params
 		| "-r"	:	std.put("{}\n",info.release)
 		| _		: 	std.put("{}\n","no info")
 		;;
+		std.exit(1)
 	;;
 	
 	std.put("{}\n",info.system)
