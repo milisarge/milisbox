@@ -14,8 +14,12 @@ const uname = {params
 		
 		option = params[0] 
 		
-		/* var hostname = read("/proc/sys/kernel/hostname") */
-		var hostname = "not yet"
+		var hostname
+		var readline = std.slurp("/proc/sys/kernel/hostname")
+		match readline
+		| `std.Ok dat: 	hostname = dat[:dat.len-1]
+		| `std.Err msg:	std.put("Failed to read file: {}\n", msg)
+		;;
 		
 		match option
 		| "-a"	:	std.put("{} {} {} {} {}\n",info.system,hostname,info.release,info.version,info.arch)
