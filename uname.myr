@@ -3,14 +3,26 @@ use "dispatch"
 
 
 const uname = {params
-	/*
-	var option
-	option=params[0] 
-	*/
+	
 	std.put("uname called\n")
 	
-	var info : std.sysinfo
-	std.put("{}\n",info.arch)
+	var info
+	std.getsysinfo(&info)
+	
+	while params
+		var option
+		option=params[0] 
+		
+		match option
+		| "-a"	:	std.put("{} {} {} {}\n",info.system,info.release,info.version,info.arch)
+		| "-m"	:	std.put("{}\n",info.arch)
+		| "-v"	:	std.put("{}\n",info.version)
+		| "-r"	:	std.put("{}\n",info.release)
+		| _		: 	std.put("{}\n","no info")
+		;;
+	;;
+	
+	std.put("{}\n",info.system)
 
 }
 
