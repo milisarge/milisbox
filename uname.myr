@@ -26,6 +26,7 @@ const uname = {params
 		| "-m"	:	std.put("{}\n",info.arch)
 		| "-v"	:	std.put("{}\n",info.version)
 		| "-r"	:	std.put("{}\n",info.release)
+		| "-s"	:	std.put("{}\n",info.system)
 		| _		: 	std.put("{}\n","no info")
 		;;
 		std.exit(1)
