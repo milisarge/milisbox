@@ -1,4 +1,4 @@
-# milisbox
+## an experimental commands-box (like busybox) for Milis Linux embedding releases in myrdding language  
 ## phase 1
 - [ ] [
 - [ ] [[
