@@ -1,4 +1,18 @@
 ## milisbox - swiss army knife for milis linux
+
+### build
+mps kur myrddin
+
+git clone https://github.com/milisarge/milisbox
+
+cd milisbox && mbld
+
+### test
+
+cd milisbox 
+
+./milisbox command parameters
+
 ## phase 1
 - [ ] [
 - [ ] [[
