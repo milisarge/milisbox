@@ -1,4 +1,4 @@
-## milisbox - swiss army knife for milis linux
+## milisbox - swiss army knife commandbox for milis linux
 
 ### build
 mps kur myrddin
